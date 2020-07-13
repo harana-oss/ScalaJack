@@ -4,7 +4,7 @@ package mongo
 import org.scalatest.funspec.AnyFunSpec
 import org.scalatest.matchers.should.Matchers
 import org.bson._
-import scala.jdk.CollectionConverters._
+import scala.collection.JavaConverters._
 
 case class TT2(name: String, rec: Map[String, List[(String, Int, Boolean)]])
 

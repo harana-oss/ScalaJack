@@ -157,7 +157,7 @@ case class MongoWriter(anyTypeAdapter: TypeAdapter[Any]) extends Writer[BsonValu
 
       t match {
         case sjc: SJCapture =>
-          import scala.jdk.CollectionConverters._
+          import scala.collection.JavaConverters._
           sjc.captured.asScala.foreach {
             case (label, capturedValue) =>
               doc.append(label, capturedValue.asInstanceOf[BsonValue])

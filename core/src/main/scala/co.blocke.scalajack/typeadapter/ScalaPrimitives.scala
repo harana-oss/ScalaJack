@@ -5,6 +5,7 @@ import org.apache.commons.codec.binary.Base64
 import model._
 
 import scala.collection.mutable
+import scala.util.Try
 
 object BigDecimalTypeAdapterFactory extends TypeAdapter.=:=[BigDecimal] with BigDecimalTypeAdapter
 trait BigDecimalTypeAdapter {
@@ -60,7 +61,7 @@ object ByteTypeAdapterFactory extends TypeAdapter.=:=[Byte] with ByteTypeAdapter
 trait ByteTypeAdapter {
   def read(parser: Parser): Byte =
     Option(parser.expectNumber())
-      .flatMap(_.toByteOption)
+      .flatMap(f => Try(f.toByte).toOption)
       .getOrElse {
         parser.backspace()
         throw new ScalaJackError(
@@ -97,7 +98,7 @@ trait DoubleTypeAdapter {
     Option(
       parser
         .expectNumber())
-      .flatMap(_.toDoubleOption)
+      .flatMap(d => Try(d.toDouble).toOption)
       .getOrElse {
         parser.backspace()
         throw new ScalaJackError(
@@ -114,7 +115,7 @@ trait FloatTypeAdapter {
     Option(
       parser
         .expectNumber())
-      .flatMap(_.toFloatOption)
+      .flatMap(f => Try(f.toFloat).toOption)
       .getOrElse {
         parser.backspace()
         throw new ScalaJackError(
@@ -131,7 +132,7 @@ trait IntTypeAdapter {
     Option(
       parser
         .expectNumber())
-      .flatMap(_.toIntOption)
+      .flatMap(f => Try(f.toInt).toOption)
       .getOrElse {
         parser.backspace()
         throw new ScalaJackError(
@@ -148,7 +149,7 @@ trait LongTypeAdapter {
     Option(
       parser
         .expectNumber())
-      .flatMap(_.toLongOption)
+      .flatMap(f => Try(f.toLong).toOption)
       .getOrElse {
         parser.backspace()
         throw new ScalaJackError(
@@ -165,7 +166,7 @@ trait ShortTypeAdapter {
     Option(
       parser
         .expectNumber())
-      .flatMap(_.toShortOption)
+      .flatMap(f => Try(f.toShort).toOption)
       .getOrElse {
         parser.backspace()
         throw new ScalaJackError(

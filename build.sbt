@@ -5,7 +5,7 @@ import scoverage.ScoverageKeys._
 def compile(deps: ModuleID*): Seq[ModuleID] = deps map (_ % "compile")
 def test(deps: ModuleID*): Seq[ModuleID] = deps map (_ % "test")
 
-val mongo_java = "org.mongodb" % "mongodb-driver-sync" % "3.10.2"
+val mongo = "org.mongodb.scala" %% "mongo-scala-driver" % "4.0.5"
 val scalatest = "org.scalatest" %% "scalatest" % "3.1.0-RC3"
 val slf4j_simple = "org.slf4j" % "slf4j-simple" % "1.7.26"
 val dynamo = "com.amazonaws" % "aws-java-sdk-dynamodb" % "1.11.538"
@@ -19,7 +19,7 @@ lazy val basicSettings = Seq(
   organization := "co.blocke",
   startYear := Some(2015),
   publishArtifact in (Compile, packageDoc) := false, // disable scaladoc due to bug handling annotations
-  scalaVersion := "2.13.1",
+  scalaVersion := "2.12.11",
   coverageMinimum := 98, // really this should be 96% but mongo isn't quite up to that yet
   coverageFailOnMinimum := true,
   parallelExecution in ThisBuild := false,
@@ -68,6 +68,7 @@ lazy val scalajack = project
       Seq("org.scala-lang" % "scala-reflect" % scalaVersion.value) ++
         Seq("org.apache.commons" % "commons-text" % "1.6") ++
         Seq("commons-codec" % "commons-codec" % "1.12") ++
+        Seq("org.scala-lang.modules" %% "scala-collection-compat" % "2.1.6") ++
         Seq(json4s, cats, snakeyaml) ++
         test(scalatest) ++
         test(json4sNative)
@@ -79,7 +80,7 @@ lazy val scalajack_mongo = project
   .settings(pubSettings: _*)
   .settings(
     libraryDependencies ++=
-      compile(mongo_java) ++
+      compile(mongo) ++
         test(scalatest, slf4j_simple) ++
         test(json4sNative)
   )

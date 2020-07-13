@@ -12,6 +12,8 @@ case class StringBuilder() extends mutable.Builder[String, String] {
     this
   }
 
+  override def +=(elem: String) = addOne(elem)
+
   def clear() = buf.setLength(0)
 
   def result() = buf.toString

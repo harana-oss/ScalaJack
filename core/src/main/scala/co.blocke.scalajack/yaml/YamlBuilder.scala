@@ -2,6 +2,7 @@ package co.blocke.scalajack
 package yaml
 
 import org.snakeyaml.engine.v2.nodes.Node
+
 import scala.collection.mutable
 
 case class YamlBuilder() extends mutable.Builder[Node, Node] {
@@ -11,6 +12,8 @@ case class YamlBuilder() extends mutable.Builder[Node, Node] {
     internalValue = Some(elem)
     this
   }
+
+  override def +=(elem: Node) = addOne(elem)
 
   def clear(): Unit = internalValue = None
 

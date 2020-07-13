@@ -8,7 +8,7 @@ import org.bson._
 import JsonMatcher._
 import java.time.{ OffsetDateTime, ZonedDateTime }
 
-import scala.jdk.CollectionConverters._
+import scala.collection.JavaConverters._
 
 case class MyNumbers(d: BigDecimal, n: Number)
 case class NumberBoom(x: BigInt)

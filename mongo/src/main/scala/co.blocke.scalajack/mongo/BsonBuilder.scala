@@ -13,6 +13,8 @@ case class BsonBuilder() extends mutable.Builder[BsonValue, BsonValue] {
     this
   }
 
+  override def +=(elem: BsonValue) = addOne(elem)
+
   def clear(): Unit = internalValue = None
 
   def result(): BsonValue =

@@ -114,7 +114,7 @@ case class Json4sWriter() extends Writer[JValue] {
         })
         val captureFields = t match {
           case sjc: SJCapture =>
-            import scala.jdk.CollectionConverters._
+            import scala.collection.JavaConverters._
             sjc.captured.asScala.asInstanceOf[Map[String, JValue]]
           case _ => Map.empty[String, JValue]
         }

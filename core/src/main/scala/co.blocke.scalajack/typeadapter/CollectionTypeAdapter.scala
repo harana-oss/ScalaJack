@@ -7,6 +7,7 @@ import co.blocke.scalajack.util.Reflection
 
 import scala.collection.{ mutable, _ }
 import scala.reflect.runtime.universe._
+import scala.collection.compat._
 
 case class CollectionTypeAdapterFactory(
     jackFlavor: JackFlavor[_],

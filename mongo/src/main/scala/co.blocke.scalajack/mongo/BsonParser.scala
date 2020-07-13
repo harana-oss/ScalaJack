@@ -8,7 +8,7 @@ import typeadapter.ClassTypeAdapterBase
 
 import scala.collection.mutable
 import scala.reflect.runtime.universe.Type
-import scala.jdk.CollectionConverters._
+import scala.collection.JavaConverters._
 
 case class BsonParser(input: BsonValue, jackFlavor: JackFlavor[BsonValue]) extends Parser {
   type WIRE = BsonValue

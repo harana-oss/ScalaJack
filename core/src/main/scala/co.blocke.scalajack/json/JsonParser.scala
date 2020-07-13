@@ -6,7 +6,7 @@ import typeadapter.ClassTypeAdapterBase
 
 import scala.collection.mutable
 import scala.reflect.runtime.universe.Type
-import scala.jdk.CollectionConverters._
+import scala.collection.JavaConverters._
 
 case class JsonParser(js: JSON, jackFlavor: JackFlavor[JSON]) extends Parser {
 

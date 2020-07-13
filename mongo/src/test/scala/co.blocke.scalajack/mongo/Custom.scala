@@ -5,7 +5,7 @@ import org.scalatest.funspec.AnyFunSpec
 import org.scalatest.matchers.should.Matchers
 import org.bson._
 import scala.reflect.runtime.universe.typeOf
-import scala.jdk.CollectionConverters._
+import scala.collection.JavaConverters._
 
 class Custom extends AnyFunSpec with Matchers {
 

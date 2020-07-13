@@ -5,7 +5,7 @@ import model._
 import typeadapter.ClassTypeAdapterBase
 import scala.collection.mutable
 import scala.reflect.runtime.universe.Type
-import scala.jdk.CollectionConverters._
+import scala.collection.JavaConverters._
 import org.snakeyaml.engine.v2.parser.ParserImpl
 import org.snakeyaml.engine.v2.scanner.StreamReader
 import org.snakeyaml.engine.v2.api.LoadSettings

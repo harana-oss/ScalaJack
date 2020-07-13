@@ -11,7 +11,7 @@ import org.snakeyaml.engine.v2.composer.Composer
 import org.snakeyaml.engine.v2.events.Event
 import org.snakeyaml.engine.v2.resolver.JsonScalarResolver
 
-import scala.jdk.CollectionConverters._
+import scala.collection.JavaConverters._
 
 case class YamlWriter() extends Writer[Node] {
 
@@ -113,7 +113,7 @@ case class YamlWriter() extends Writer[Node] {
       })
       val captureFields = t match {
         case sjc: SJCapture =>
-          import scala.jdk.CollectionConverters._
+          import scala.collection.JavaConverters._
 
           sjc.captured.asScala.map {
             case (k, v) =>

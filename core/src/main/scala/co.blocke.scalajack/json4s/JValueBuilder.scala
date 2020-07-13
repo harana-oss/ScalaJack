@@ -13,6 +13,8 @@ case class JValueBuilder() extends mutable.Builder[JValue, JValue] {
     this
   }
 
+  def +=(elem: JValue) = addOne(elem)
+
   def clear(): Unit = internalValue = None
 
   def result(): JValue =
