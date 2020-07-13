@@ -16,7 +16,7 @@ val snakeyaml = "org.snakeyaml" % "snakeyaml-engine" % "2.0"
 
 lazy val basicSettings = Seq(
   resolvers += Resolver.jcenterRepo,
-  organization := "co.blocke",
+  organization := "com.harana.oss",
   startYear := Some(2015),
   publishArtifact in (Compile, packageDoc) := false, // disable scaladoc due to bug handling annotations
   scalaVersion := "2.12.11",
